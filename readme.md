@@ -5,9 +5,12 @@ Está aplicação tem com objetivo realizar o gerenciamento interno do pagamento
 Principais dependências:
 
 - Spring Boot
-- Devtools
+- Dev Tools
 - Thymeleaf
 - Spring Data JPA
 - H2
 - MySQL
 - Tomcat
+
+pom.xml gerado por:
+- start.spring.io

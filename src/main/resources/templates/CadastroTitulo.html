@@ -1,67 +1,88 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>Cadastro de Título</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
 <body>
 
 	<!-- Just an image -->
 	<nav class="navbar navbar-dark bg-dark">
-	  <a class="navbar-brand" href="#">
-	    <img src="/images/bootstrap-solid.svg" width="30" height="30" alt="">
-	    Boostrap
-	  </a>
+		<a class="navbar-brand" href="#"> <img
+			src="/images/bootstrap-solid.svg" width="30" height="30" alt="">
+			Boostrap
+		</a>
 	</nav>
-	
-	
-	<div class="col-sm-12 my-3">
-	<div class="card ">
-	  <div class="card-header">
-	    Novo Título
-	  </div>
-	  <form class="card-body" method="POST" action="/titulos">
-	  	<div class="row form-group">
-		    <label for="descricao" class="col-sm-2 control-label font-weight-bold">Descrição</label>
-		    <div class="col-sm-4">
-		    	<input type="text" class="form-control" id="descricao" name="descricao"/>
-		    </div>
-	    </div>
-	    <div class="row form-group">
-		    <label for="dataVencimento" class="col-sm-2 control-label font-weight-bold">Data de vencimento</label>
-		    <div class="col-sm-4">
-		    	<input type="text" class="form-control" id="dataVencimento" name="dataVencimento"/>
-		    </div>
-	    </div>
-	    <div class="row form-group">
-		    <label for="valor" class="col-sm-2 control-label font-weight-bold">Valor</label>
-		    <div class="col-sm-4">
-		    	<input type="text" class="form-control" id="valor" name="valor"/>
-		    </div>
-	    </div>
-	    <div class="row form-group">
-		    <label for="descricao" class="col-sm-2 control-label font-weight-bold"></label>
-		    <div class="col-sm-2 input-group mb-3">
-			  <div class="input-group-prepend">
-			    <label class="input-group-text" for="status">Status</label>
-			  </div>
-			  <select class="custom-select" id="status" name="status">
-			    <option value="PENDENTE">Pendente</option>
-			    <option value="RECEBIDO">Recebido</option>
-			  </select>
+
+
+	<div class="jumbotron bg-white">
+		<div class="col-sm-12 my-3">
+
+			<div id="close" class="alert alert-success alert-dismissible fade show" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<span th:text="${mensagem}"></span>
 			</div>
-	    </div>
-	    <div class="form-group">
-	    	<div class="offset-sm-2">
-	    		<button type="submit" class="btn btn-primary my-3">Salvar</button>
-	    	</div>
-	    </div>
-	  </form>
-	</div>
+			<div class="card ">
+				<div class="card-header">Novo Título</div>
+				<form class="card-body" method="POST" action="/titulos">
+					<div class="row form-group">
+						<label for="descricao"
+							class="col-sm-2 control-label font-weight-bold">Descrição</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="descricao"
+								name="descricao" />
+						</div>
+					</div>
+					<div class="row form-group">
+						<label for="dataVencimento"
+							class="col-sm-2 control-label font-weight-bold">Data de
+							vencimento</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="dataVencimento"
+								name="dataVencimento" />
+						</div>
+					</div>
+					<div class="row form-group">
+						<label for="valor" class="col-sm-2 control-label font-weight-bold">Valor</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="valor" name="valor" />
+						</div>
+					</div>
+					<div class="row form-group">
+						<label for="descricao"
+							class="col-sm-2 control-label font-weight-bold"></label>
+						<div class="col-sm-2 input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="status">Status</label>
+							</div>
+							<select class="custom-select" id="status" name="status">
+								<option value="PENDENTE">Pendente</option>
+								<option value="RECEBIDO">Recebido</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-primary my-3">Salvar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
-
-<script type="js/boostrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script type="js/boostrap.min.js"></script>
+	<script type="text/javascript">
+			$("#close").click(function(){
+		        $('#close').fadeTo(200, 0).slideUp(200)
+		    }) 
+	</script>
 </body>
 </html>

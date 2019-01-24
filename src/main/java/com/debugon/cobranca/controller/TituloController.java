@@ -41,6 +41,11 @@ public class TituloController {
 		return mv;
 	}
 	
+	@RequestMapping
+	public String pesquisar() {
+		return "PesquisaTitulos";
+	}
+	
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo> todosStatusTitulo(){
 		//Poderia ser utilizado pelo thymeleaf como StatusTituloList (tipo do retorno do método)

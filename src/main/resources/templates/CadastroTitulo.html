@@ -60,8 +60,7 @@
 								<label class="input-group-text" for="status">Status</label>
 							</div>
 							<select class="custom-select" id="status" name="status">
-								<option value="PENDENTE">Pendente</option>
-								<option value="RECEBIDO">Recebido</option>
+								<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 							</select>
 						</div>
 					</div>

@@ -1,11 +1,16 @@
 package com.debugon.cobranca.controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.debugon.cobranca.model.StatusTitulo;
 import com.debugon.cobranca.model.Titulo;
 import com.debugon.cobranca.repository.Titulos;
 
@@ -17,8 +22,11 @@ public class TituloController {
 	private Titulos titulos;
 	
 	@RequestMapping("/novo")
-	public String novo() {
-		return "CadastroTitulo";
+	public ModelAndView novo() {
+		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		//mv.addObject("todosStatusTitulo", StatusTitulo.values());
+		//return "CadastroTitulo";
+		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -28,9 +36,14 @@ public class TituloController {
 		
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
 		mv.addObject("mensagem", "Titulo salvo com sucesso!!");
-		//
-		//System.out.println(">>>" + titulo.getDescricao());
+		//mv.addObject("todosStatusTitulo", StatusTitulo.values());
 		//return "CadastroTitulo";
 		return mv;
+	}
+	
+	@ModelAttribute("todosStatusTitulo")
+	public List<StatusTitulo> todosStatusTitulo(){
+		//Poderia ser utilizado pelo thymeleaf como StatusTituloList (tipo do retorno do método)
+		return Arrays.asList(StatusTitulo.values());
 	}
 }

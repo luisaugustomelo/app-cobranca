@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao.html}">
 
 <head>
-<meta charset="UTF-8" />
 <title>Pesquisa de títulos</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
 
-<body>
-
-	<!-- Just an image -->
-	<nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> <img
-			src="/images/bootstrap-solid.svg" width="30" height="30" alt="">
-			Boostrap
-		</a>
-	</nav>
-
-
+<section layout:fragment="conteudo">
 	<div class="jumbotron bg-white">
 		<div class="card">
-			<div class="card-header">Pesquisa por títulos</div>
+			<div class="card-header">
+			<h5 class="float-left pt-1"> Pesquisa por títulos </h5>
+			<a class="btn btn-link float-right" href="/titulos/novo">Novo título</a>
+			</div>
+			
 			<div>
-			<table class="table table-bordered table-striped">
-				<thead>
-					<tr>
-						<th scope="col" class="text-center" style="width: 5%">#</th>
-						<th scope="col" style="width: 50%">Descrição</th>
-						<th scope="col" style="width: 20%" class="text-center">Data
-							de Vencimento</th>
-						<th scope="col" style="width: 10%" class="text-right">Valor</th>
-						<th scope="col" style="width: 10%" class="text-center">Status</th>
-						<th scope="col" style="width: 5%"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td colspan="6">Nenhum título foi encontrado.</td>
-					</tr>
-				</tbody>
-			</table>
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th scope="col" class="text-center" style="width: 5%">#</th>
+							<th scope="col" style="width: 50%">Descrição</th>
+							<th scope="col" style="width: 20%" class="text-center">Data
+								de Vencimento</th>
+							<th scope="col" style="width: 10%" class="text-right">Valor</th>
+							<th scope="col" style="width: 10%" class="text-center">Status</th>
+							<th scope="col" style="width: 5%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="6">Nenhum título foi encontrado.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	<script type="js/boostrap.min.js"></script>
-	<script type="text/javascript">
-		$("#close").click(function() {
-			$('#close').fadeTo(200, 0).slideUp(200)
-		})
-	</script>
-</body>
+</section>
 </html>

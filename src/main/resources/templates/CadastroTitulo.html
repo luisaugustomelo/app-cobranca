@@ -21,6 +21,8 @@
 
 					<div layout:insert="~{Mensagem.html}"></div>
 
+					<input type="hidden" th:field="*{codigo}" />
+					
 					<div class="row form-group">
 						<label for="descricao"
 							class="col-sm-2 control-label font-weight-bold">Descrição</label>

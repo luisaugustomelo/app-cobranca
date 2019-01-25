@@ -41,7 +41,11 @@
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 								<!-- th:classappend="${#strings.toString(titulo.status) == 'PENDENTE' ? 'badge-danger' : 'badge-success'}" -->
 							</td>
-							<td class="text-center"></td>
+							<td class="text-center">
+								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+							</td>
 						</tr>
 						<tr th:if="${#lists.isEmpty(titulos)}">
 							<td colspan="6">Nenhum título foi encontrado.</td>

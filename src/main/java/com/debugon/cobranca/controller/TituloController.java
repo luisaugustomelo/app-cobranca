@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,39 +22,45 @@ public class TituloController {
 
 	@Autowired
 	private Titulos titulos;
-	
+
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
-		//mv.addObject("todosStatusTitulo", StatusTitulo.values());
-		//return "CadastroTitulo";
+		mv.addObject(new Titulo());
+		// mv.addObject("todosStatusTitulo", StatusTitulo.values());
+		// return "CadastroTitulo";
 		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(Titulo titulo) {
+	public ModelAndView salvar(@Validated Titulo titulo, Errors errors) {
+		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		
+		if(errors.hasErrors()) {
+			return mv;
+		}
 		// TODO: Salvar no banco de dados - jdbc:h2:mem:testdb
 		titulos.save(titulo);
-		
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
+
 		mv.addObject("mensagem", "Titulo salvo com sucesso!!");
-		//mv.addObject("todosStatusTitulo", StatusTitulo.values());
-		//return "CadastroTitulo";
+		// mv.addObject("todosStatusTitulo", StatusTitulo.values());
+		// return "CadastroTitulo";
 		return mv;
 	}
-	
+
 	@RequestMapping
 	public ModelAndView pesquisar() {
 		List<Titulo> todosTitulos = titulos.findAll();
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
-		//return "PesquisaTitulos";
+		// return "PesquisaTitulos";
 		mv.addObject("titulos", todosTitulos);
 		return mv;
 	}
-	
+
 	@ModelAttribute("todosStatusTitulo")
-	public List<StatusTitulo> todosStatusTitulo(){
-		//Poderia ser utilizado pelo thymeleaf como StatusTituloList (tipo do retorno do método)
+	public List<StatusTitulo> todosStatusTitulo() {
+		// Poderia ser utilizado pelo thymeleaf como StatusTituloList (tipo do retorno
+		// do método)
 		return Arrays.asList(StatusTitulo.values());
 	}
 }

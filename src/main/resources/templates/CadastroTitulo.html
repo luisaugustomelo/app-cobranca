@@ -21,16 +21,25 @@
 			</div>
 			<div class="card ">
 				<div class="card-header">
-				<h5 class="float-left pt-1"> Novo Título </h5>
-				<a class="btn btn-link float-right" href="/titulos">Voltar para pesquisa</a>
+					<h5 class="float-left pt-1">Novo Título</h5>
+					<a class="btn btn-link float-right" href="/titulos">Voltar para
+						pesquisa</a>
 				</div>
-				<form class="card-body" method="POST" action="/titulos">
+				<form class="card-body needs-validation" method="POST" action="/titulos"
+					th:object="${titulo}" novalidate>
+					
+					<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+						<div th:each="detailedError : ${#fields.detailedErrors()}">
+							<span th:text="${detailedError.message}"></span>
+						</div>
+					</div>
+
 					<div class="row form-group">
 						<label for="descricao"
 							class="col-sm-2 control-label font-weight-bold">Descrição</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="descricao"
-								name="descricao" />
+								name="descricao" th:classappend="${#fields.hasErrors('descricao')} ? 'is-invalid'"/>
 						</div>
 					</div>
 					<div class="row form-group">
@@ -39,13 +48,14 @@
 							vencimento</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="dataVencimento"
-								name="dataVencimento" />
+								name="dataVencimento" th:classappend="${#fields.hasErrors('dataVencimento')} ? 'is-invalid'"/>
 						</div>
 					</div>
-					<div class="row form-group">
+					<div class="row form-group" >
 						<label for="valor" class="col-sm-2 control-label font-weight-bold">Valor</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="valor" name="valor" />
+							<input type="text" class="form-control" id="valor" name="valor" 
+							th:classappend="${#fields.hasErrors('valor')} ? 'is-invalid'"/>
 						</div>
 					</div>
 					<div class="row form-group">

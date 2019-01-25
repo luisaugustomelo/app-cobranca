@@ -12,10 +12,11 @@
 	<div class="jumbotron bg-white">
 		<div class="card">
 			<div class="card-header">
-			<h5 class="float-left pt-1"> Pesquisa por títulos </h5>
-			<a class="btn btn-link float-right" href="/titulos/novo">Novo título</a>
+				<h5 class="float-left pt-1">Pesquisa por títulos</h5>
+				<a class="btn btn-link float-right" href="/titulos/novo">Novo
+					título</a>
 			</div>
-			
+
 			<div>
 				<table class="table table-bordered table-striped">
 					<thead>
@@ -35,14 +36,12 @@
 							<td th:text="${titulo.descricao}"></td>
 							<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
 							<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-							<td class="text-center">
-								<span class="badge badge-pill" th:text="${titulo.status.descricao}"
+							<td class="text-center"><span class="badge badge-pill"
+								th:text="${titulo.status.descricao}"
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 								<!-- th:classappend="${#strings.toString(titulo.status) == 'PENDENTE' ? 'badge-danger' : 'badge-success'}" -->
 							</td>
-							<td class="text-center">
-								
-							</td>
+							<td class="text-center"></td>
 						</tr>
 						<tr th:if="${#lists.isEmpty(titulos)}">
 							<td colspan="6">Nenhum título foi encontrado.</td>

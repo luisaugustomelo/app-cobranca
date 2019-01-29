@@ -19,7 +19,8 @@
 				<form class="card-body needs-validation" method="POST"
 					action="/titulos" th:object="${titulo}">
 
-					<div layout:insert="~{Mensagem.html}"></div>
+					<div layout:insert="~{MensagemGeral.html}"></div>
+					<div layout:insert="~{MensagemErro.html}"></div>
 
 					<input type="hidden" th:field="*{codigo}" />
 					

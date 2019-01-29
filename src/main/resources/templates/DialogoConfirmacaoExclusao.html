@@ -9,7 +9,7 @@
 		aria-hidden="true">
 		<div class="modal-dialog modal-lg-dialog-centered modal-lg"
 			role="document">
-			<form action="/titulos" method="POST">
+			<form th:attr="data-url-base='/titulos'" method="POST">
 				<input type="hidden" name="_method" value="DELETE" />
 				<div class="modal-content">
 					<div class="modal-header">

@@ -68,6 +68,13 @@ public class TituloController {
 		return mv;
 	}
 
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		titulos.deleteById(codigo);
+		attributes.addFlashAttribute("mensagem", "Titulo excluído com sucesso!!");
+		return "redirect:/titulos";
+	}
+	
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo> todosStatusTitulo() {
 		// Poderia ser utilizado pelo thymeleaf como StatusTituloList (tipo do retorno

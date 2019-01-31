@@ -15,7 +15,7 @@ Principais dependências:
 pom.xml gerado por:
 - start.spring.io
 
-## Estrutura da pasta do projeto
+## Estrutura do projeto
 
 ## Licença
 

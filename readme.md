@@ -1,6 +1,10 @@
 # Aplicação de Cobrança com Spring Boot
 Está aplicação tem com objetivo realizar o gerenciamento interno do pagamento das mensalidades de um condomínio.
 
+# Requeridos
+- Java 8
+- MySQL
+
 # Dependências
 Principais dependências:
 
@@ -9,7 +13,6 @@ Principais dependências:
 - Thymeleaf
 - Spring Data JPA
 - H2
-- MySQL
 - Tomcat
 
 pom.xml gerado por:

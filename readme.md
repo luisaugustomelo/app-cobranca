@@ -1,11 +1,11 @@
 # Aplicação de Cobrança com Spring Boot
 Está aplicação tem com objetivo realizar o gerenciamento interno do pagamento das mensalidades de um condomínio.
 
-# Requeridos
+## Requeridos
 - Java 8
 - MySQL
 
-# Dependências
+## Dependências
 Principais dependências:
 
 - Spring Boot
@@ -15,8 +15,11 @@ Principais dependências:
 - H2
 - Tomcat
 
-pom.xml gerado por:
-- start.spring.io
+## Sites auxiliares 
+
+```bash
+start.spring.io # gerador de pom.xml
+```
 
 ## Estrutura do projeto
 
